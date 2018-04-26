@@ -9,7 +9,7 @@ class Chatbot:
     def __init__(self):
         self.input_texts = 35
         self.latent_dim = 256
-        self.max_encoder_seq_length = 80
+        self.max_encoder_seq_length = 82
         self.max_decoder_seq_length = 254
         self.charecter_index = None
         self.uniqie_tokens = None
@@ -31,10 +31,12 @@ class Chatbot:
         self.decoder_state_input_c = None
         self.decoder_states_inputs = None
         self.decoder_model = None
+        self.data_path = 'seq2seq_data/'
+        self.weights_path = 'models/'
 
 
     def load_obj(self, name):
-        with open(name + '.pkl', 'rb') as f:
+        with open(self.data_path + name + '.pkl', 'rb') as f:
             return pickle.load(f)
 
 
@@ -71,7 +73,7 @@ class Chatbot:
 
     def load_weights(self):
         print('Loading model...')
-        self.model.load_weights('new_data_proc_weights1.h5')
+        self.model.load_weights(self.weights_path + 's2s.h5')
         print ('Model loaded!')
 
 

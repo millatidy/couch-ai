@@ -28,10 +28,8 @@ def reply():
         "message": None
         }
     if flask.request.method == "POST":
-        print('here')
         data = flask.request.get_json(silent=True)
         input_text = data.get('message')
-        print(input_text)
         decoded_sentence = bot.chat(input_text.lower())
         response['message'] = decoded_sentence
         response['success'] = True
