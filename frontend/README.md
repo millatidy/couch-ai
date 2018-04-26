@@ -1,6 +1,6 @@
-# chatbot
+# couch-ai
 
-> Web ui for chatbot
+> couch-frontend
 
 ## Build Setup
 
