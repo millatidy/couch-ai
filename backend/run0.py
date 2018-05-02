@@ -1,7 +1,6 @@
 import os
 import flask
 import requests
-import enchat
 from chatbot import Chatbot
 
 
@@ -31,12 +30,6 @@ def reply():
     if flask.request.method == "POST":
         data = flask.request.get_json(silent=True)
         input_text = data.get('message')
-        d = enchat.Dict('en-us')
-        for i in input_text:
-            if d.check(i) is False:
-                response['message'] = 'I don't understand the question'
-                response['success'] = True
-                return jsonify(response)
         decoded_sentence = bot.chat(input_text.lower())
         response['message'] = decoded_sentence
         response['success'] = True
